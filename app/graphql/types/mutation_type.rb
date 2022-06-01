@@ -1,11 +1,11 @@
 module Types
   class MutationType < Types::BaseObject
     # users
-    field :sigin_in, mutation: Mutations::SiginIn
-    field :create_user, mutation: Mutations::CreateUser
-    field :update_user, mutation: Mutations::UpdateUser
-    field :disable_user, mutation: Mutations::DisableUser
-    field :restore_user, mutation: Mutations::RestoreUser
+    field :sigin_in, mutation: Mutations::UserMutation::SiginIn
+    field :create_user, mutation: Mutations::UserMutation::CreateUser
+    field :update_user, mutation: Mutations::UserMutation::UpdateUser
+    field :disable_user, mutation: Mutations::UserMutation::DisableUser
+    field :restore_user, mutation: Mutations::UserMutation::RestoreUser
 
     # posts
     field :create_post, mutation: Mutations::CreatePost

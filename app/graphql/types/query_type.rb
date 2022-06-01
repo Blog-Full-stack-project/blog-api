@@ -4,17 +4,8 @@ module Types
     include GraphQL::Types::Relay::HasNodesField
 
     # Users
-    field :users, [Types::UserType], null: false
-    def users
-      User.all
-    end
-
-    field :user, Types::UserType, null: false
-    def user
-      check_authentication
-
-      current_user
-    end
+    field :users, resolver: Queries::UserQuery::Users
+    field :user, resolver: Queries::UserQuery::ShowUser
 
     # Posts
     field :posts, [Types::PostType], null: false

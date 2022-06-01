@@ -1,4 +1,4 @@
-class Mutations::SiginIn < Mutations::BaseMutation
+class Mutations::UserMutation::SiginIn < Mutations::BaseMutation
   argument :email, String, required: true
   argument :password, String, required: true
 
@@ -16,6 +16,8 @@ class Mutations::SiginIn < Mutations::BaseMutation
     }
 
   rescue ActiveRecord::RecordNotFound => e
-     raise GraphQL::ExecutionError, e.message
+      raise GraphQL::ExecutionError, e.message
   end
 end
+
+
