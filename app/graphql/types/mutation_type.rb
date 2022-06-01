@@ -8,10 +8,10 @@ module Types
     field :restore_user, mutation: Mutations::UserMutation::RestoreUser
 
     # posts
-    field :create_post, mutation: Mutations::CreatePost
-    field :update_post, mutation: Mutations::UpdatePost
-    field :disable_post, mutation: Mutations::DisablePost
-    field :restore_post, mutation: Mutations::RestorePost
+    field :create_post, mutation: Mutations::PostMutation::CreatePost
+    field :update_post, mutation: Mutations::PostMutation::UpdatePost
+    field :disable_post, mutation: Mutations::PostMutation::DisablePost
+    field :restore_post, mutation: Mutations::PostMutation::RestorePost
 
     #comments
     field :create_comment, mutation: Mutations::CreateComment
