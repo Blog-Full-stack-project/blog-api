@@ -4,50 +4,14 @@ module Types
     include GraphQL::Types::Relay::HasNodesField
 
     # Users
-    field :users, [Types::UserType], null: false
-    def users
-      User.all
-    end
-
-    field :user, Types::UserType, null: false
-    def user
-      check_authentication
-
-      current_user
-    end
+    field :users, resolver: Queries::UserQuery::Users
+    field :user, resolver: Queries::UserQuery::ShowUser
 
     # Posts
-    field :posts, [Types::PostType], null: false
-    def posts
-      check_authentication
-      
-      Post.order("created_at DESC")
-    end
+    field :posts, resolver: Queries::PostQuery::Posts
+    field :post, resolver: Queries::PostQuery::ShowPost
+    field :my_posts, resolver: Queries::PostQuery::MyPosts
+    field :my_archived_posts, resolver: Queries::PostQuery::MyArchivedPosts
 
-    field :my_posts, [Types::PostType], null: false
-    def my_posts
-      check_authentication
-
-      current_user.posts
-    end
-
-    field :my_archived_posts, [Types::PostType], null: false
-    def my_archived_posts
-      check_authentication
-
-      current_user.posts.only_deleted
-    end
-
-    field :post, Types::PostType, null: true do
-      argument :id, ID, required: true
-    end
-    def post(id:)
-      check_authentication
-
-      Post.find(id)
-    rescue ActiveRecord::RecordNotFound => e
-      raise GraphQL::ExecutionError, e.message
-    end
-    
   end
 end
