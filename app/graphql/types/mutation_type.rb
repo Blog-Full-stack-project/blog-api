@@ -14,9 +14,9 @@ module Types
     field :restore_post, mutation: Mutations::PostMutation::RestorePost
 
     #comments
-    field :create_comment, mutation: Mutations::CreateComment
-    field :update_comment, mutation: Mutations::UpdateComment
-    field :delete_comment, mutation: Mutations::DeleteComment
+    field :create_comment, mutation: Mutations::CommentMutation::CreateComment
+    field :update_comment, mutation: Mutations::CommentMutation::UpdateComment
+    field :delete_comment, mutation: Mutations::CommentMutation::DeleteComment
 
   end
 end
