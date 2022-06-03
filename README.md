@@ -1,24 +1,23 @@
-# README
+# 📑 Blog API 📑
+> Status: **Em desenvolvimento**⚠️<br>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Sobre o projeto 📑
 
-Things you may want to cover:
 
-* Ruby version
+## Funcionamento e EndPoints ✔️
 
-* System dependencies
 
-* Configuration
+## Ferramentas e versões 🛠
 
-* Database creation
+Ferramentas | Versões
+----------- | ----------
+Ruby        | 3.0.1
+Rails       | 6.1.4.1
+Git         | 2.25
+Heroku      | heroku-18
 
-* Database initialization
+## Autor 👦
++   [Luiz Davi](https://github.com/luiz-davi)
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Acesso ao sistema 🖥
+[Link do Heroku](https://rails-blog-api-2022.herokuapp.com/)<br>
