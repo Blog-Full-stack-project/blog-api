@@ -10,42 +10,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20220531120814) do
+ActiveRecord::Schema.define(version: 2022_05_31_120814) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "comments", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "post_id"
-    t.string   "message"
+  create_table "comments", id: :serial, force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "post_id"
+    t.string "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "deleted_at"
-    t.index ["deleted_at"], name: "index_comments_on_deleted_at", using: :btree
-    t.index ["post_id"], name: "index_comments_on_post_id", using: :btree
-    t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
+    t.index ["deleted_at"], name: "index_comments_on_deleted_at"
+    t.index ["post_id"], name: "index_comments_on_post_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
-  create_table "posts", force: :cascade do |t|
-    t.text     "topic"
-    t.integer  "user_id"
+  create_table "posts", id: :serial, force: :cascade do |t|
+    t.text "topic"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "deleted_at"
-    t.index ["deleted_at"], name: "index_posts_on_deleted_at", using: :btree
-    t.index ["user_id"], name: "index_posts_on_user_id", using: :btree
+    t.index ["deleted_at"], name: "index_posts_on_deleted_at"
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string   "email"
-    t.string   "name"
-    t.string   "phone"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.string   "password_digest"
+  create_table "users", id: :serial, force: :cascade do |t|
+    t.string "email"
+    t.string "name"
+    t.string "phone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "password_digest"
     t.datetime "deleted_at"
-    t.index ["deleted_at"], name: "index_users_on_deleted_at", using: :btree
+    t.index ["deleted_at"], name: "index_users_on_deleted_at"
   end
 
   add_foreign_key "comments", "posts"
