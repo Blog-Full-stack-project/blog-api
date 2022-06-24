@@ -7,6 +7,7 @@ module Types
     field :enabled, Boolean
     field :user, Types::UserType
     field :comments, [Types::CommentType]
+    field :count_likes, Integer
     
     def user
       object.user
@@ -14,6 +15,10 @@ module Types
     
     def comments
       object.comments
+    end
+
+    def count_likes
+      object.likes.size
     end
   end
 end
