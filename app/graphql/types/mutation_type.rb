@@ -18,8 +18,5 @@ module Types
     field :update_comment, mutation: Mutations::CommentMutation::UpdateComment
     field :delete_comment, mutation: Mutations::CommentMutation::DeleteComment
 
-    # Likes
-    field :create_like, mutation: Mutations::LikeMutation::CreateLike
-    field :delete_like, mutation: Mutations::LikeMutation::DeleteLike
   end
 end
